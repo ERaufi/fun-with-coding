@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@import "https://unpkg.com/open-props";
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline-offset: 4px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://images.pexels.com/photos/2618804/pexels-photo-2618804.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  display: grid;
+  grid-template-areas: "main";
+  padding: var(--size-4);
+  min-height: 100vh;
+  font-family: var(--font-sans);
+}
+.page__main {
+  grid-area: main;
+}
+
+.main {
+  display: grid;
+  align-items: center;
+}
+.main__login-form {
+  margin-inline: auto;
+  max-width: 25em;
+}
+
+.login-form {
+  color: #433532;
+  display: grid;
+  position: relative;
+  width: 100%;
+  padding: var(--size-8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 1em;
+}
+.login-form::before {
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  content: "";
+  z-index: -4000;
+  box-shadow: 0 0 2em rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
+.login-form__title {
+  margin-bottom: var(--size-6);
+  font-weight: var(--font-weight-6);
+  font-size: var(--font-size-5);
+  text-align: center;
+}
+.login-form__label {
+  margin-bottom: var(--size-4);
+  display: grid;
+}
+.login-form__input {
+  color: inherit;
+  width: 100%;
+  padding: 0.8em;
+  border: 0;
+  border-radius: var(--radius-2);
+}
+.login-form__footer {
+  margin-top: var(--size-5);
+  display: flex;
+  gap: var(--size-2);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 36em) {
+  .login-form__footer {
+    flex-direction: row;
+  }
+}
+.login-form__link {
+  color: inherit;
+  text-decoration: 0;
+}
+.login-form__link:hover {
+  text-decoration: underline;
+}
+
+.primary-btn {
+  color: white;
+  background-color: #433532;
+  padding: 0.9em 1.4em;
+  border: 0;
+  border-radius: var(--radius-2);
+  cursor: pointer;
+}
+.primary-btn:hover {
+  background-color: #c53b0d;
+}
+
+.sr-only {
+  position: absolute;
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+  .moveable-btn {
+    position: absolute;
+    top: 83%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+
+    </style>
+
+</head>
+
+
+<body class="page">
+        <h3>Number of Click<span id="numberOfClicks">0</span></h3>
+  <main class="main page__main">
+    <form class="login-form main__login-form" action="javascript:void(0)" method="POST">
+      <h3 class="login-form__title">Sign In</h3>
+      <label class="login-form__label" for="uname"><span class="sr-only">Username</span>
+        <input class="login-form__input" type="text" id="uname" name="uname" value="" placeholder="Username" required="required"/>
+      </label>
+      <label class="login-form__label" for="psw"><span class="sr-only">Password</span>
+        <input class="login-form__input" type="password" id="psw" name="psw" value="" placeholder="Password" required="required"/>
+      </label>
+      <button class="primary-btn moveable-btn" type="button">Login</button>
+      <div class="login-form__footer"><a class="login-form__link" href="#">Forget Password?</a><a class="login-form__link" href="#">Sign Up</a></div>
+    </form>
+  </main>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    let numberOfClicks=0;
+    $(".page").on('click',function(){
+        numberOfClicks++;
+        $("#numberOfClicks").text(numberOfClicks);
+    });
+
+    const initialPos = $(".moveable-btn").offset();
+
+    $(".moveable-btn").on('click',function(){
+        alert('Congrutes');
+        numberOfClicks=0;
+        location.reload();
+    })
+  $('.moveable-btn').mouseenter(function() {
+    var maxTop = window.innerHeight - $(this).height();
+    var maxLeft = window.innerWidth - $(this).width();
+    $(this).animate({
+      'top': Math.floor(Math.random() * (maxTop / 1.5)) + "px",
+      'left': Math.floor(Math.random() * (maxLeft / 1.5)) + "px"
+    }, 1000);
+  });
+
+
+
+</script>
+</html>
