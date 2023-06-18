@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 400px;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .option img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="option" onclick="play('rock')">
+      <img src="https://via.placeholder.com/100" alt="Rock">
+      <span>Rock</span>
+    </div>
+    <div class="option" onclick="play('paper')">
+      <img src="https://via.placeholder.com/100" alt="Paper">
+      <span>Paper</span>
+    </div>
+    <div class="option" onclick="play('scissors')">
+      <img src="https://via.placeholder.com/100" alt="Scissors">
+      <span>Scissors</span>
+    </div>
+  </div>
+
+  <div class="result"></div>
+
+  <script>
+    function play(userChoice) {
+      const options = ['rock', 'paper', 'scissors'];
+      const computerChoice = options[Math.floor(Math.random() * options.length)];
+
+      const result = getResult(userChoice, computerChoice);
+
+      updateUI(userChoice, computerChoice, result);
+    }
+
+    function getResult(userChoice, computerChoice) {
+      if (userChoice === computerChoice) {
+        return "It's a tie!";
+      } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        return "You win!";
+      } else {
+        return "You lose!";
+      }
+    }
+
+    function updateUI(userChoice, computerChoice, result) {
+      const userChoiceElement = document.createElement('div');
+      userChoiceElement.innerHTML = `
+        <img src="https://via.placeholder.com/100" alt="${userChoice}">
+        <span>${userChoice}</span>
+      `;
+
+      const computerChoiceElement = document.createElement('div');
+      computerChoiceElement.innerHTML = `
+        <img src="https://via.placeholder.com/100" alt="${computerChoice}">
+        <span>${computerChoice}</span>
+      `;
+
+      const resultElement = document.querySelector('.result');
+      resultElement.innerHTML = `
+        <div>${result}</div>
+      `;
+
+      resultElement.prepend(computerChoiceElement);
+      resultElement.prepend(userChoiceElement);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz App</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  margin-bottom: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.result {
+  text-align: center;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Quiz App</h1>
+  
+  <div class="question">
+    <h2>Question 1</h2>
+    <p>What is the capital of France?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question1" id="option1">
+      <label for="option1">London</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question1" id="option2">
+      <label for="option2">Paris</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question1" id="option3">
+      <label for="option3">Madrid</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question1" id="option4">
+      <label for="option4">Berlin</label>
+    </div>
+  </div>
+  
+  <div class="question">
+    <h2>Question 2</h2>
+    <p>What is the largest planet in our solar system?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question2" id="option5">
+      <label for="option5">Mars</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question2" id="option6">
+      <label for="option6">Jupiter</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question2" id="option7">
+      <label for="option7">Earth</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question2" id="option8">
+      <label for="option8">Saturn</label>
+    </div>
+  </div>
+  
+  <!-- Additional Questions -->
+  
+  <div class="question">
+    <h2>Question 3</h2>
+    <p>Who painted the Mona Lisa?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question3" id="option9">
+      <label for="option9">Pablo Picasso</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question3" id="option10">
+      <label for="option10">Leonardo da Vinci</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question3" id="option11">
+      <label for="option11">Vincent van Gogh</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question3" id="option12">
+      <label for="option12">Michelangelo</label>
+    </div>
+  </div>
+  
+  <div class="question">
+    <h2>Question 4</h2>
+    <p>What is the largest ocean in the world?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question4" id="option13">
+      <label for="option13">Atlantic Ocean</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question4" id="option14">
+      <label for="option14">Arctic Ocean</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question4" id="option15">
+      <label for="option15">Indian Ocean</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question4" id="option16">
+      <label for="option16">Pacific Ocean</label>
+    </div>
+  </div>
+  
+  <div class="question">
+    <h2>Question 5</h2>
+    <p>Who wrote the play "Romeo and Juliet"?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question5" id="option17">
+      <label for="option17">William Shakespeare</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question5" id="option18">
+      <label for="option18">George Bernard Shaw</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question5" id="option19">
+      <label for="option19">Arthur Miller</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question5" id="option20">
+      <label for="option20">Tennessee Williams</label>
+    </div>
+  </div>
+  
+  <div class="question">
+    <h2>Question 6</h2>
+    <p>What is the chemical symbol for gold?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question6" id="option21">
+      <label for="option21">Au</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question6" id="option22">
+      <label for="option22">Ag</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question6" id="option23">
+      <label for="option23">Pt</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question6" id="option24">
+      <label for="option24">Cu</label>
+    </div>
+  </div>
+  
+  <div class="question">
+    <h2>Question 7</h2>
+    <p>Which country is home to the kangaroo?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question7" id="option25">
+      <label for="option25">Australia</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question7" id="option26">
+      <label for="option26">Canada</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question7" id="option27">
+      <label for="option27">Brazil</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question7" id="option28">
+      <label for="option28">Kenya</label>
+    </div>
+  </div>
+  
+  <div class="question">
+    <h2>Question 8</h2>
+    <p>What is the largest organ in the human body?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question8" id="option29">
+      <label for="option29">Brain</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question8" id="option30">
+      <label for="option30">Heart</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question8" id="option31">
+      <label for="option31">Skin</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question8" id="option32">
+      <label for="option32">Liver</label>
+    </div>
+  </div>
+  
+  <div class="question">
+    <h2>Question 9</h2>
+    <p>What is the tallest mountain in the world?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question9" id="option33">
+      <label for="option33">Mount Everest</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question9" id="option34">
+      <label for="option34">Mount Kilimanjaro</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question9" id="option35">
+      <label for="option35">Mount McKinley</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question9" id="option36">
+      <label for="option36">Mount Fuji</label>
+    </div>
+  </div>
+  
+  <div class="question">
+    <h2>Question 10</h2>
+    <p>Who is the author of the Harry Potter book series?</p>
+  </div>
+  <div class="options">
+    <div class="option">
+      <input type="radio" name="question10" id="option37">
+      <label for="option37">J.K. Rowling</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question10" id="option38">
+      <label for="option38">Stephen King</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question10" id="option39">
+      <label for="option39">George R.R. Martin</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="question10" id="option40">
+      <label for="option40">Suzanne Collins</label>
+    </div>
+  </div>
+  
+  <button class="button">Next</button>
+  <div class="result"></div>
+</div>
+
+<script>
+const button = document.querySelector('.button');
+const result = document.querySelector('.result');
+
+button.addEventListener('click', () => {
+  const selectedOption1 = document.querySelector('input[name="question1"]:checked');
+  const selectedOption2 = document.querySelector('input[name="question2"]:checked');
+  const selectedOption3 = document.querySelector('input[name="question3"]:checked');
+  const selectedOption4 = document.querySelector('input[name="question4"]:checked');
+  const selectedOption5 = document.querySelector('input[name="question5"]:checked');
+  const selectedOption6 = document.querySelector('input[name="question6"]:checked');
+  const selectedOption7 = document.querySelector('input[name="question7"]:checked');
+  const selectedOption8 = document.querySelector('input[name="question8"]:checked');
+  const selectedOption9 = document.querySelector('input[name="question9"]:checked');
+  const selectedOption10 = document.querySelector('input[name="question10"]:checked');
+
+  if (selectedOption1 && selectedOption2 && selectedOption3 && selectedOption4 && selectedOption5 && selectedOption6 && selectedOption7 && selectedOption8 && selectedOption9 && selectedOption10) {
+    let score = 0;
+
+    if (selectedOption1.id === 'option2') {
+      score++;
+    }
+    if (selectedOption2.id === 'option6') {
+      score++;
+    }
+    if (selectedOption3.id === 'option10') {
+      score++;
+    }
+    if (selectedOption4.id === 'option16') {
+      score++;
+    }
+    if (selectedOption5.id === 'option17') {
+      score++;
+    }
+    if (selectedOption6.id === 'option21') {
+      score++;
+    }
+    if (selectedOption7.id === 'option25') {
+      score++;
+    }
+    if (selectedOption8.id === 'option31') {
+      score++;
+    }
+    if (selectedOption9.id === 'option33') {
+      score++;
+    }
+    if (selectedOption10.id === 'option37') {
+      score++;
+    }
+
+    result.textContent = `You scored ${score} out of 10.`;
+  } else {
+    result.textContent = 'Please answer all questions.';
+  }
+});
+</script>
+</body>
+</html>
