@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+    <style>
+.container {
+  background-color: #f7fafc;
+  padding: 20px;
+}
+
+.calculator h1 {
+  color: #4a5568;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.calculator input {
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+  text-align: right;
+  font-size: 20px;
+}
+
+.calculator button {
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.calculator button.btn-secondary {
+  background-color: #edf2f7;
+  color: #4a5568;
+}
+
+.calculator button.btn-danger {
+  background-color: #f56565;
+  color: #fff;
+}
+
+.calculator button.btn-warning {
+  background-color: #ecc94b;
+  color: #fff;
+}
+
+.calculator button.btn-success {
+  background-color: #48bb78;
+  color: #fff;
+}
+</style>
+
+  </head>
+  <body>
+    <div class="container mx-auto mt-5">
+      <h1 class="text-center text-4xl font-bold">Calculator</h1>
+      <div class="flex justify-center">
+        <div class="calculator">
+          <input
+            type="text"
+            class="form-input mb-2"
+            id="result"
+            readonly
+          />
+          <div class="grid grid-cols-4 gap-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('1')"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('2')"
+            >
+              2
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('3')"
+            >
+              3
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="handleClear()"
+            >
+              C
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('4')"
+            >
+              4
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('5')"
+            >
+              5
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('6')"
+            >
+              6
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="handleClick('+')"
+            >
+              +
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('7')"
+            >
+              7
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('8')"
+            >
+              8
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('9')"
+            >
+              9
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="handleClick('-')"
+            >
+              -
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('0')"
+            >
+              0
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="handleClick('.')"
+            >
+              .
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              onclick="handleCalculate()"
+            >
+              =
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="handleClick('*')"
+            >
+              *
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let result = "";
+
+      const handleClick = (value) => {
+        result += value;
+        document.getElementById("result").value = result;
+      };
+
+      const handleClear = () => {
+        result = "";
+        document.getElementById("result").value = "";
+      };
+
+      const handleCalculate = () => {
+        try {
+          const calculation = eval(result);
+          result = calculation.toString();
+          document.getElementById("result").value = result;
+        } catch (error) {
+          result = "Error";
+          document.getElementById("result").value = result;
+        }
+      };
+    </script>
+  </body>
+</html>
